@@ -471,6 +471,25 @@
     visibility: visible !important;
   }
   
+  /* MOBILE-ONLY: Keep items in resting state - no expanded styling */
+  .portfolio-item {
+    cursor: default !important;
+    transition: none !important;
+    width: 100vw !important; /* Resting width */
+    max-width: 100vw !important;
+    min-height: auto !important; /* Resting height */
+    height: auto !important;
+  }
+  
+  .portfolio-item:hover {
+    background: transparent !important;
+    transform: none !important;
+  }
+  
+  .portfolio-item:hover .project-name {
+    transform: none !important;
+  }
+  
   .portfolio-list {
     padding: 0 !important;
     scroll-snap-type: x mandatory;

@@ -252,8 +252,8 @@ const PortfolioList = ({ onActiveChange }) => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`portfolio-item ${activeIndex === index ? 'active' : ''}`}
-            onClick={() => handleToggle(index)}
+            className={`portfolio-item ${activeIndex === index && window.innerWidth > 768 ? 'active' : ''}`}
+            onClick={window.innerWidth > 768 ? () => handleToggle(index) : undefined}
           >
             <div className="project-name">{project.name}</div>
             <div className="swiss-underline"></div>
