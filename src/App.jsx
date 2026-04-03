@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import logo from './assets/365webdays_web_design_development.png';
 import PortfolioList from './components/PortfolioList';
-import { useState } from 'react';
+import './components/Footer.css';
 
 function App() {
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
@@ -32,6 +33,24 @@ function App() {
           <PortfolioList onActiveChange={setIsPortfolioActive} />
         </div>
       </main>
+      
+      {/* Thin Footer Strip */}
+      <footer className="swiss-footer">
+        <div className="footer-container">
+          <div className="footer-brand">
+            <h3 className="footer-title">365WEBDAYS</h3>
+          </div>
+          
+          <div className="footer-contact">
+            <a href="#" className="footer-email" onClick={(e) => {
+              e.preventDefault();
+              window.location.href = 'mailto' + ':' + 'hello' + '@' + '365webdays' + '.' + 'com';
+            }}>
+              hello [at] 365webdays [dot] com
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

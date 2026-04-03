@@ -121,6 +121,44 @@ const PortfolioList = ({ onActiveChange }) => {
   const portfolioListRef = useRef(null);
 
   const handleToggle = (index) => {
+    // Check if item is fully visible, if not, scroll it into view first
+    if (portfolioListRef.current) {
+      const container = portfolioListRef.current;
+      const itemWidth = 280; // Base width of portfolio item
+      const expandedWidth = 480; // Expanded width for desktop
+      const scrollLeft = container.scrollLeft;
+      const containerWidth = container.clientWidth;
+      const itemPosition = index * itemWidth;
+      
+      // Check if item is not fully visible OR if expanded item would go off-screen
+      const itemStart = itemPosition - scrollLeft;
+      const itemEnd = itemStart + itemWidth;
+      const expandedEnd = itemStart + expandedWidth;
+      
+      if (itemStart < 0 || expandedEnd > containerWidth) {
+        // Calculate scroll position so expanded item's right edge sticks to screen edge
+        const targetScroll = itemPosition + expandedWidth - containerWidth;
+        
+        // Ensure we don't scroll past the beginning (minimum scroll = 0)
+        const finalScroll = Math.max(0, targetScroll);
+        
+        container.scrollTo({
+          left: finalScroll,
+          behavior: 'smooth'
+        });
+        
+        // Wait for scroll to complete, then activate
+        setTimeout(() => {
+          activateItem(index);
+        }, 400); // Wait for smooth scroll to complete
+      } else {
+        // Item is fully visible and expansion fits, activate immediately
+        activateItem(index);
+      }
+    }
+  };
+
+  const activateItem = (index) => {
     // If not raised, only allow the clicked item to activate (no restrictions)
     if (!isRaised) {
       // First activation - raise the list

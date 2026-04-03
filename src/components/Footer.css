@@ -1,0 +1,176 @@
+/* Swiss Design Thin Footer Strip */
+.swiss-footer {
+  background: #111111;
+  color: #F7F7F5;
+  padding: 16px 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #F7F7F5;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #D8D8D0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #F7F7F5;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.footer-email {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #D8D8D0;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-email:hover {
+  color: #F7F7F5;
+}
+
+.footer-social {
+  display: flex;
+  gap: 8px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid #D8D8D0;
+  color: #D8D8D0;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background: #F7F7F5;
+  color: #111111;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .swiss-footer {
+    padding: 12px 0;
+  }
+  
+  .footer-container {
+    padding: 0 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .footer-brand {
+    order: 1;
+    gap: 16px;
+  }
+  
+  .footer-links {
+    order: 3;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .footer-contact {
+    order: 2;
+    gap: 16px;
+  }
+  
+  .footer-title {
+    font-size: 12px;
+  }
+  
+  .footer-link {
+    font-size: 11px;
+  }
+  
+  .footer-email {
+    font-size: 11px;
+  }
+  
+  .social-link {
+    width: 20px;
+    height: 20px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    gap: 8px;
+  }
+  
+  .footer-brand {
+    gap: 12px;
+  }
+  
+  .footer-links {
+    gap: 12px;
+  }
+  
+  .footer-contact {
+    gap: 12px;
+  }
+  
+  .footer-title {
+    font-size: 11px;
+  }
+  
+  .footer-link {
+    font-size: 10px;
+  }
+  
+  .footer-email {
+    font-size: 10px;
+  }
+}
