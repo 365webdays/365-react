@@ -29,15 +29,32 @@ const projects = [
   { name: 'HARBATS', tech: 'React', screenshot: harbatsImage }
 ];
 
-const PortfolioList = () => {
+const PortfolioList = ({ onActiveChange }) => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [isRaised, setIsRaised] = useState(false);
 
   const handleToggle = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
+    // If not raised, only allow the clicked item to activate (no restrictions)
+    if (!isRaised) {
+      // First activation - raise the list
+      setActiveIndex(index);
+      setIsRaised(true);
+      onActiveChange(true);
+    } else {
+      // Already raised - just switch which item is enlarged
+      const newActiveIndex = activeIndex === index ? null : index;
+      setActiveIndex(newActiveIndex);
+      
+      // If clicking the active item again, collapse everything
+      if (newActiveIndex === null) {
+        setIsRaised(false);
+        onActiveChange(false);
+      }
+    }
   };
 
   return (
-    <div className="portfolio-container">
+    <div className={`portfolio-container ${activeIndex !== null ? 'active' : ''}`}>
       <div className="portfolio-list">
         {projects.map((project, index) => (
           <div

@@ -3,6 +3,11 @@
 .portfolio-container {
   background: #F7F7F5;
   padding: 40px 0;
+  transition: transform 0.4s ease-out;
+}
+
+.portfolio-container.active {
+  transform: translateY(-200px);
 }
 
 .portfolio-list {
@@ -52,13 +57,18 @@
 
 .project-name {
   font-family: 'Archivo Black', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 100;
   color: #111111;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 8px;
   line-height: 1.2;
+  transition: all 0.4s ease;
+}
+
+.portfolio-item.active .project-name {
+  font-size: 18px;
 }
 
 .swiss-underline {
