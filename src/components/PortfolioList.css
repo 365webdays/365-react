@@ -5,6 +5,8 @@
   padding: 40px 0;
   transition: transform 0.4s ease-out;
   transform: translateY(-80px);
+  height: auto;
+  min-height: auto;
 }
 
 .portfolio-container.active {
@@ -13,9 +15,14 @@
 
 .portfolio-list {
   overflow-x: auto;
+  overflow-y: visible;
   white-space: nowrap;
   scroll-behavior: smooth;
   padding: 0 20px;
+  height: auto;
+  min-height: auto;
+  display: flex;
+  align-items: flex-start;
 }
 
 /* Swiss Design Navigation */
@@ -103,19 +110,24 @@
 }
 
 .portfolio-item {
-  display: inline-block;
-  vertical-align: top;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
   width: 280px;
   white-space: normal;
   padding: 20px;
   cursor: pointer;
   transition: all 0.3s ease, width 0.4s ease 0.2s;
   position: relative;
+  height: auto;
+  min-height: auto;
 }
 
 .portfolio-item.active {
   z-index: 20;
   width: 480px;
+  height: auto;
+  min-height: auto;
 }
 
 .portfolio-item:hover {
@@ -176,7 +188,7 @@
 }
 
 .screenshot-container.expanded {
-  max-height: 180px;
+  max-height: 2000px; /* Large enough to accommodate any content */
   margin-top: 16px;
 }
 

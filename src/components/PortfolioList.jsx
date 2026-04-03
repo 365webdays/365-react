@@ -20,7 +20,7 @@ const projects = [
     name: 'SOURCEBOOK', 
     tech: 'Laravel', 
     screenshot: sourcebookImage,
-    description: 'A comprehensive Laravel-based platform for managing creative resources and project collaboration.',
+    description: 'A Laravel-based B2B directory platform connecting Philippine businesses across industries. Features a searchable company directory, product listings, an interactive heat map, and a structured industry classification system.',
     url: 'https://sourcebook.ph/',
     highlights: ['Custom admin dashboard', 'Real-time collaboration', 'Advanced search functionality']
   },

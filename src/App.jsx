@@ -7,7 +7,7 @@ function App() {
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
 
   return (
-    <div className="w-screen h-screen bg-[#F7F7F5] flex flex-col">
+    <div className="w-screen min-h-screen bg-[#F7F7F5] flex flex-col">
       <header className="w-full py-6 px-4">
         <div className="max-w-7xl mx-auto">
           <img 
@@ -18,7 +18,7 @@ function App() {
         </div>
       </header>
       
-      <main className="flex-1 flex flex-col">
+      <main className="flex flex-col">
         <div className="w-full max-w-7xl mx-auto px-4 py-12">
           <div className="text-left">
             <p className="text-base md:text-lg lg:text-xl font-['DM Sans'] font-medium mb-2 m-0 p-0 text-[#777777]">WEB DESIGN & DEVELOPMENT</p>
