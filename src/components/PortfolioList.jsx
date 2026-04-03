@@ -188,11 +188,28 @@ const PortfolioList = ({ onActiveChange }) => {
 
   const scroll = (direction) => {
     if (portfolioListRef.current) {
-      const scrollAmount = 300; // Width of one item plus padding
-      portfolioListRef.current.scrollBy({
-        left: direction === 'left' ? -scrollAmount : scrollAmount,
-        behavior: 'smooth'
-      });
+      const container = portfolioListRef.current;
+      const items = container.querySelectorAll('.portfolio-item');
+      
+      if (items.length > 0) {
+        // Get current scroll position and calculate current item index
+        const currentScrollLeft = container.scrollLeft;
+        const itemWidth = items[0].offsetWidth;
+        const currentIndex = Math.round(currentScrollLeft / itemWidth);
+        
+        // Calculate next index with boundary protection
+        const nextIndex = direction === 'left' 
+          ? Math.max(0, currentIndex - 1)
+          : Math.min(items.length - 1, currentIndex + 1);
+        
+        // Scroll to exact position of next item for snap behavior
+        const targetScroll = nextIndex * itemWidth;
+        
+        container.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth'
+        });
+      }
     }
   };
 
