@@ -68,6 +68,10 @@
   cursor: not-allowed;
 }
 
+.nav-arrow.disabled:hover {
+  cursor: not-allowed;
+}
+
 .nav-arrow:focus {
   outline: 2px solid #111111;
   outline-offset: 2px;
