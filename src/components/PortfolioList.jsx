@@ -189,6 +189,7 @@ const PortfolioList = ({ onActiveChange }) => {
   const scroll = (direction) => {
     if (portfolioListRef.current) {
       const container = portfolioListRef.current;
+      const isMobile = window.innerWidth <= 768;
       const items = container.querySelectorAll('.portfolio-item');
       
       if (items.length > 0) {
@@ -213,8 +214,8 @@ const PortfolioList = ({ onActiveChange }) => {
     }
   };
 
-  const canScrollLeft = scrollPosition > 0;
-  const canScrollRight = scrollPosition < 1;
+  const canScrollLeft = scrollPosition > 0.01;
+  const canScrollRight = scrollPosition < 0.99;
 
   return (
     <div className={`portfolio-container ${activeIndex !== null ? 'active' : ''}`}>
