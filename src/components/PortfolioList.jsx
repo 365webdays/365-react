@@ -260,7 +260,7 @@ const PortfolioList = ({ onActiveChange }) => {
             <div className="tech-stack">{project.tech}</div>
             <div className="secondary-rule"></div>
             
-            <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''}`}>
+            <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''} ${window.innerWidth <= 768 ? 'mobile-always-open' : ''}`}>
               {project.screenshot ? (
                 <img 
                   src={project.screenshot} 
@@ -271,29 +271,24 @@ const PortfolioList = ({ onActiveChange }) => {
                 <div className="screenshot-placeholder"></div>
               )}
               
-              {/* All additional content positioned to the right of thumbnail */}
-              {activeIndex === index && (
-                <div className="features-right">
-                  <h4 className="highlights-title">KEY FEATURES:</h4>
-                  <ul className="highlights-list">
-                    {project.highlights.map((highlight, idx) => (
-                      <li key={idx} className="highlight-item">{highlight}</li>
-                    ))}
-                  </ul>
-                  
-                  <p className="project-description">{project.description}</p>
-                  <div className="project-url">
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="url-link"
-                    >
-                      View Live Site →
-                    </a>
-                  </div>
-                </div>
-              )}
+              <div className="project-details">
+                <p className="project-description">{project.description}</p>
+                <ul className="project-highlights">
+                  {project.highlights.map((highlight, idx) => (
+                    <li key={idx}>{highlight}</li>
+                  ))}
+                </ul>
+                {project.url && (
+                  <a 
+                    href={project.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    View Live Site →
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}

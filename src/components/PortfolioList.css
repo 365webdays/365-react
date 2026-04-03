@@ -434,6 +434,43 @@
     min-height: auto;
   }
   
+  /* MOBILE-ONLY: All items open by default, cannot be collapsed */
+  .screenshot-container.mobile-always-open {
+    max-height: none !important;
+    margin-top: 16px !important;
+    overflow: visible !important;
+    transition: none !important;
+  }
+  
+  /* FORCE ALL CONTENT VISIBLE ON MOBILE - AGGRESSIVE OVERRIDES */
+  .screenshot-container.mobile-always-open .project-details {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    padding: 16px 0 0 0 !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+  
+  .screenshot-container.mobile-always-open .project-description {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .screenshot-container.mobile-always-open .project-highlights {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
+  .screenshot-container.mobile-always-open .project-link {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  
   .portfolio-list {
     padding: 0 !important;
     scroll-snap-type: x mandatory;
