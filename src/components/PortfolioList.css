@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300&display=swap');
+
+.portfolio-container {
+  background: #F7F7F5;
+  padding: 40px 0;
+}
+
+.portfolio-list {
+  overflow-x: scroll;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  padding: 0 20px;
+}
+
+/* Hide default scrollbar on webkit */
+.portfolio-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom scrollbar for Firefox */
+.portfolio-list {
+  scrollbar-width: thin;
+  scrollbar-color: #111111 #D8D8D0;
+}
+
+/* Custom scrollbar for webkit (when forced to show) */
+.portfolio-list::-webkit-scrollbar-track {
+  background: #D8D8D0;
+  height: 3px;
+}
+
+.portfolio-list::-webkit-scrollbar-thumb {
+  background: #111111;
+  height: 3px;
+  border-radius: 0;
+}
+
+.portfolio-item {
+  display: inline-block;
+  vertical-align: top;
+  width: 280px;
+  white-space: normal;
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.portfolio-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.project-name {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 13px;
+  font-weight: 100;
+  color: #111111;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.swiss-underline {
+  width: 100%;
+  height: 1px;
+  background: #111111;
+  margin-bottom: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.portfolio-item.active .swiss-underline {
+  background: #CC0000;
+}
+
+.tech-stack {
+  font-family: 'Archivo', sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  color: #777777;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.secondary-rule {
+  width: 100%;
+  height: 0.5px;
+  background: #D8D8D0;
+  margin-bottom: 0;
+}
+
+.screenshot-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 400ms ease;
+  margin-top: 0;
+}
+
+.screenshot-container.expanded {
+  max-height: 180px;
+  margin-top: 16px;
+}
+
+.screenshot {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.screenshot-placeholder {
+  background: #EFEFED;
+  height: 180px;
+  width: 100%;
+  display: block;
+}
