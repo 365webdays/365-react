@@ -18,7 +18,7 @@ import harbatsImage from '../assets/portfolio/portfolio_0010_harbats.webp';
 const projects = [
   { 
     name: 'SOURCEBOOK', 
-    tech: 'Laravel', 
+    tech: 'Laravel · MySQL', 
     screenshot: sourcebookImage,
     description: 'A Laravel-based B2B directory platform connecting Philippine businesses across industries. Features a searchable company directory, product listings, an interactive heat map, and a structured industry classification system.',
     url: 'https://sourcebook.ph/',
@@ -28,77 +28,77 @@ const projects = [
     name: 'MINIMUS', 
     tech: 'React', 
     screenshot: minimusPortfolioImage,
-    description: 'A minimalist React application showcasing modern web development with clean design principles.',
+    description: 'A React-built artist site for Minimus, an electronic chillwave, ambient, and synthpop project. Features a custom-built media player designed to match the mood and aesthetic of the music.',
     url: 'https://minimus.music/',
-    highlights: ['Component-based architecture', 'Optimized performance', 'Responsive design']
+    highlights: ['Custom React media player', 'Chillwave / ambient / synthpop catalogue', 'Fully bespoke UI built around the artist\'s sound and identity']
   },
   { 
     name: 'RAMP HEALTH', 
-    tech: 'WordPress', 
+    tech: 'WordPress · Custom MVC', 
     screenshot: rampHealthImage,
-    description: 'Healthcare website built on WordPress with patient management and appointment scheduling.',
+    description: 'A WordPress-built corporate health and wellness platform serving employers, health plans, and government clients across the US. Covers the full continuum of care — from clinical services and health screenings to digital health, AI risk mitigation, and employee wellbeing programs.',
     url: 'https://ramphealth.com/',
-    highlights: ['HIPAA compliant', 'Online booking system', 'Mobile responsive']
+    highlights: ['Multi-service platform spanning clinical, wellbeing, and digital health', 'Proprietary digital health portal with participant login', 'HIPAA compliant, HITRUST certified']
   },
   { 
     name: 'TATTUMUNDO', 
     tech: 'WordPress · Woocommerce', 
     screenshot: tattuImage,
-    description: 'E-commerce platform for tattoo artists with portfolio management and booking system.',
+    description: 'A WordPress WooCommerce e-commerce platform for Tattumundo, a Philippine-based temporary tattoo brand featuring designs by local independent artists. Each collection is artist-led, with its own name, story, and aesthetic.',
     url: 'https://tattumundo.com/',
-    highlights: ['Artist portfolios', 'Booking system', 'E-commerce integration']
+    highlights: ['WooCommerce store with wishlist and multi-currency support (PHP/USD)', 'Artist profile pages alongside their collections', 'Product variant support for multi-design packs', 'Category filtering by style', 'Video integration for product how-to content']
   },
   { 
     name: 'STUDIO PP', 
     tech: 'WordPress', 
     screenshot: ppImage,
-    description: 'Creative agency website with project showcase and client collaboration tools.',
+    description: 'A WordPress membership site for Studio PP, a boutique Pilates and functional fitness studio founded by Australian Winter Olympian Steph Prem. The site serves both the physical Melbourne studio and an online membership platform offering on-demand Pilates, barre, and functional fitness classes.',
     url: 'https://studiopp.com.au/',
-    highlights: ['Project galleries', 'Client portal', 'CMS integration']
+    highlights: ['Membership and subscription system with monthly and yearly pricing tiers', 'Online studio with on-demand class access via MindBody integration', '21-day challenge sign-up and members portal', 'Event and workshop pages for live and retreats', 'Corporate Pilates and speaking engagement sections', 'Newsletter sign-up with free class incentive']
   },
   { 
     name: "PEOPLE'S CHOICE TAX", 
     tech: 'WordPress · PHP', 
     screenshot: pctaxImage,
-    description: 'Tax preparation services website with client document management and scheduling.',
+    description: 'A WordPress site for People\'s Choice Tax and Accounting, an independent income tax preparation and bookkeeping firm based in Tustin, Orange County, California. The site serves small business owners and individuals looking for personal, locally owned financial services.',
     url: 'https://www.pctaxservice.com/',
-    highlights: ['Secure document upload', 'Appointment scheduling', 'Tax calculator']
+    highlights: ['Service pages covering income tax, bookkeeping, and business coaching', 'Bilingual support with an English and Spanish version', 'Client resource section with tax deadlines, document checklists, and forms', 'IRS refund tracking integration']
   },
   { 
     name: 'WEDU READING', 
     tech: 'WordPress', 
     screenshot: weduImage,
-    description: 'Educational platform focused on reading comprehension and literacy development.',
+    description: 'A web platform for Wedu Reading, an EdTech product designed to develop critical reading skills for high school students preparing for the SAT and ACT. The platform combines structured reading practice with a separate student portal for login, progress tracking, and guided challenges.',
     url: 'https://wedureading.com/',
-    highlights: ['Interactive lessons', 'Progress tracking', 'Parent dashboard']
+    highlights: ['Separate reader tracks for SAT/ACT prep, high school, and parent-facing content', 'Student login portal at portal.wedureading.com', '30-day SAT and ACT reading challenge programs', 'Motivational quote carousel for engagement', 'Clean mobile-responsive layout optimized for student use']
   },
   { 
     name: 'WARTON EDUCATION', 
     tech: 'WordPress', 
     screenshot: wartonImage,
-    description: 'Educational institution website with course management and student portal.',
+    description: 'A WordPress site for Warton Education, a college admissions and test prep consultancy founded by a Harvard graduate with 18 years of tutoring experience. The site serves high school students pursuing SAT, ACT, and AP preparation alongside personalized college consulting for top-tier university admissions.',
     url: 'https://wartoneducation.com/',
-    highlights: ['Course catalog', 'Student portal', 'Online registration']
+    highlights: ['Course pages for SAT, ACT, and AP online programs', 'Separate sections for online tutoring and college consulting services', 'Student results and reviews pages with verified admissions outcomes', 'Blog with test prep and college admissions news', 'Notable stats prominently displayed including 5 perfect SAT scores and 20 perfect ACT scores since 2016']
   },
   { 
     name: 'ENG APP', 
     tech: 'WordPress', 
     screenshot: engImage,
-    description: 'English learning application with interactive exercises and progress tracking.',
+    description: 'A landing page for ENG, a mobile vocabulary app that teaches the top 1,000 most commonly used English words. Built around a single focused conversion goal — driving downloads to both the App Store and Google Play. The page leads with a sharp value proposition: 1,000 words cover 89% of everyday writing.',
     url: 'http://mylanguagelearning.com/',
-    highlights: ['Interactive exercises', 'Speech recognition', 'Progress analytics']
+    highlights: ['App download landing page with dual App Store and Google Play CTAs', 'Single-page, conversion-focused layout', 'App showcase visual with clean product presentation', 'Minimal navigation to keep focus on the download action']
   },
   { 
     name: 'MEDIA.XCHANGE', 
     tech: 'WordPress', 
     screenshot: mmxImage,
-    description: 'Media sharing platform with content management and social features.',
+    description: 'A WordPress site for media.Xchange Public Relations, a boutique PR and events firm founded in 2007 and recognized as one of the best boutique PR agencies in Asia-Pacific at the 2022 and 2024 PR Awards Asia. The site serves as the agency\'s primary digital presence, showcasing their services, client roster, press releases, and career opportunities.',
     url: 'https://mediadotexchange.com/',
-    highlights: ['Media upload', 'Social sharing', 'Content management']
+    highlights: ['Full-screen slider-driven layout with sectioned storytelling', 'Comprehensive services pages covering media relations, events management, social media, content creation, and policy communications', 'Extensive client roster page featuring over 80 clients including NBA, UNICEF, Bloomberg, L\'Oreal, Warner Music Group, and the United Nations', 'Press releases section with featured coverage', 'Careers portal with active job listings', 'Bilingual-ready contact and inquiry system']
   },
   { 
     name: 'FAMILY FOOD', 
-    tech: 'WordPress · Laravel', 
+    tech: 'WordPress · Custom MVC', 
     screenshot: ffImage,
     description: 'Family recipe sharing platform with meal planning and grocery lists.',
     url: 'https://familyfoodllc.com/',

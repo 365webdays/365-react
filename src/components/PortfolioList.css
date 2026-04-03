@@ -580,3 +580,57 @@
 .project-link:hover::before {
   width: 100%;
 }
+
+/* Prevent text wrapping around thumbnail */
+.project-details {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.project-description {
+  margin: 0 0 12px 0;
+}
+
+.project-highlights {
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Ensure bullets are visible in project highlights */
+.project-highlights {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.project-highlights li {
+  margin-bottom: 4px;
+  color: #111111;
+}
+
+/* Match font styling between project-description and project-highlights */
+.project-description {
+  margin: 0 0 12px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.5;
+}
+
+.project-highlights {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.5;
+}
+
+.project-highlights li {
+  margin-bottom: 4px;
+  color: #111111;
+}
