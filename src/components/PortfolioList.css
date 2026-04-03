@@ -4,10 +4,11 @@
   background: #F7F7F5;
   padding: 40px 0;
   transition: transform 0.4s ease-out;
+  transform: translateY(-50px);
 }
 
 .portfolio-container.active {
-  transform: translateY(-200px);
+  transform: translateY(-180px);
 }
 
 .portfolio-list {
