@@ -18,7 +18,60 @@
   padding: 0 20px;
 }
 
-/* Hide scrollbar for all browsers */
+/* Swiss Design Navigation */
+.portfolio-navigation {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+}
+
+.nav-arrow {
+  background: transparent;
+  border: 2px solid #111111;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow:hover:not(.disabled) {
+  background: #111111;
+  color: #F7F7F5;
+}
+
+.nav-arrow.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.nav-arrow:focus {
+  outline: 2px solid #111111;
+  outline-offset: 2px;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  .portfolio-navigation {
+    padding: 0 16px;
+    margin-bottom: 12px;
+  }
+  
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
 .portfolio-list {
   -ms-overflow-style: none;
   scrollbar-width: none;

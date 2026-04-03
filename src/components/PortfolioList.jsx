@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './PortfolioList.css';
 
 // Import portfolio images
@@ -32,6 +32,8 @@ const projects = [
 const PortfolioList = ({ onActiveChange }) => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isRaised, setIsRaised] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const portfolioListRef = useRef(null);
 
   const handleToggle = (index) => {
     // If not raised, only allow the clicked item to activate (no restrictions)
@@ -53,9 +55,55 @@ const PortfolioList = ({ onActiveChange }) => {
     }
   };
 
+  const handleScroll = () => {
+    if (portfolioListRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = portfolioListRef.current;
+      const position = scrollLeft / (scrollWidth - clientWidth);
+      setScrollPosition(position);
+    }
+  };
+
+  const scroll = (direction) => {
+    if (portfolioListRef.current) {
+      const scrollAmount = 300; // Width of one item plus padding
+      portfolioListRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const canScrollLeft = scrollPosition > 0;
+  const canScrollRight = scrollPosition < 1;
+
   return (
     <div className={`portfolio-container ${activeIndex !== null ? 'active' : ''}`}>
-      <div className="portfolio-list">
+      {/* Swiss Design Navigation Arrows */}
+      <div className="portfolio-navigation">
+        <button 
+          className={`nav-arrow nav-arrow-left ${!canScrollLeft ? 'disabled' : ''}`}
+          onClick={() => scroll('left')}
+          disabled={!canScrollLeft}
+          aria-label="Scroll left"
+        >
+          ←
+        </button>
+        
+        <button 
+          className={`nav-arrow nav-arrow-right ${!canScrollRight ? 'disabled' : ''}`}
+          onClick={() => scroll('right')}
+          disabled={!canScrollRight}
+          aria-label="Scroll right"
+        >
+          →
+        </button>
+      </div>
+
+      <div 
+        ref={portfolioListRef}
+        className="portfolio-list"
+        onScroll={handleScroll}
+      >
         {projects.map((project, index) => (
           <div
             key={index}
