@@ -4,7 +4,7 @@
   background: #F7F7F5;
   padding: 40px 0;
   transition: transform 0.4s ease-out;
-  transform: translateY(-50px);
+  transform: translateY(-80px);
 }
 
 .portfolio-container.active {
