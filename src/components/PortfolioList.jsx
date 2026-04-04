@@ -17,7 +17,7 @@ import harbatsImage from '../assets/portfolio/portfolio_0010_harbats.webp';
 
 const projects = [
   { 
-    name: 'SOURCEBOOK', 
+    name: 'SOURCEBOOK.PH', 
     tech: 'Laravel · MySQL', 
     screenshot: sourcebookImage,
     description: 'A Laravel-based B2B directory platform connecting Philippine businesses across industries. Features a searchable company directory, product listings, an interactive heat map, and a structured industry classification system.',
