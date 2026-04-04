@@ -98,19 +98,19 @@ const projects = [
   },
   { 
     name: 'FAMILY FOOD', 
-    tech: 'WordPress · Custom MVC', 
+    tech: 'WordPress · Custom MVC · MySQL', 
     screenshot: ffImage,
-    description: 'Family recipe sharing platform with meal planning and grocery lists.',
+    description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
     url: 'https://familyfoodllc.com/',
-    highlights: ['Recipe sharing', 'Meal planning', 'Grocery integration']
+    highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Service pages covering nutrition counseling, pediatric nutrition, oncology, diabetes, prenatal nutrition, and corporate wellness', 'Virtual appointment booking via Calendly integration', 'Insurance acceptance prominently featured to reduce booking friction']
   },
   { 
     name: 'HARBATS', 
-    tech: 'React', 
+    tech: 'Laravel', 
     screenshot: harbatsImage,
-    description: 'Modern React application showcasing advanced frontend development techniques.',
+    description: 'A Laravel-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
-    highlights: ['Advanced React patterns', 'State management', 'Performance optimization']
+    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints', 'Minimal, atmosphere-first design built around the band\'s visual identity']
   }
 ];
 
