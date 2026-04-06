@@ -33,6 +33,22 @@ const projects = [
     highlights: ['Custom React media player', 'Chillwave / ambient / synthpop catalogue', 'Fully bespoke UI built around the artist\'s sound and identity']
   },
   { 
+    name: 'FAMILY FOOD', 
+    tech: 'WordPress · Custom MVC · MySQL', 
+    screenshot: ffImage,
+    description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
+    url: 'https://familyfoodllc.com/',
+    highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Service pages covering nutrition counseling, pediatric nutrition, oncology, diabetes, prenatal nutrition, and corporate wellness', 'Virtual appointment booking via Calendly integration', 'Insurance acceptance prominently featured to reduce booking friction']
+  },
+  { 
+    name: 'HARBATS', 
+    tech: 'Laravel', 
+    screenshot: harbatsImage,
+    description: 'A Laravel-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
+    url: 'https://harbats.com/',
+    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints', 'Minimal, atmosphere-first design built around the band\'s visual identity']
+  },
+  { 
     name: 'RAMP HEALTH', 
     tech: 'WordPress · Custom MVC', 
     screenshot: rampHealthImage,
@@ -95,22 +111,6 @@ const projects = [
     description: 'A WordPress site for media.Xchange Public Relations, a boutique PR and events firm founded in 2007 and recognized as one of the best boutique PR agencies in Asia-Pacific at the 2022 and 2024 PR Awards Asia. The site serves as the agency\'s primary digital presence, showcasing their services, client roster, press releases, and career opportunities.',
     url: 'https://mediadotexchange.com/',
     highlights: ['Full-screen slider-driven layout with sectioned storytelling', 'Comprehensive services pages covering media relations, events management, social media, content creation, and policy communications', 'Extensive client roster page featuring over 80 clients including NBA, UNICEF, Bloomberg, L\'Oreal, Warner Music Group, and the United Nations', 'Press releases section with featured coverage', 'Careers portal with active job listings', 'Bilingual-ready contact and inquiry system']
-  },
-  { 
-    name: 'FAMILY FOOD', 
-    tech: 'WordPress · Custom MVC · MySQL', 
-    screenshot: ffImage,
-    description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
-    url: 'https://familyfoodllc.com/',
-    highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Service pages covering nutrition counseling, pediatric nutrition, oncology, diabetes, prenatal nutrition, and corporate wellness', 'Virtual appointment booking via Calendly integration', 'Insurance acceptance prominently featured to reduce booking friction']
-  },
-  { 
-    name: 'HARBATS', 
-    tech: 'Laravel', 
-    screenshot: harbatsImage,
-    description: 'A Laravel-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
-    url: 'https://harbats.com/',
-    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints', 'Minimal, atmosphere-first design built around the band\'s visual identity']
   }
 ];
 

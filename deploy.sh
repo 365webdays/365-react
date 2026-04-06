@@ -2,7 +2,7 @@
 
 echo "🚀 Starting deployment process..."
 
-# Build the React app
+# Build React app
 echo "📦 Building React app..."
 npm run build
 
@@ -10,16 +10,26 @@ npm run build
 if [ $? -eq 0 ]; then
     echo "✅ Build successful!"
     echo "📁 Build files are in ./dist/"
-    echo "🔗 Ready to deploy to SFTP server"
     echo ""
-    echo "📋 Next steps:"
-    echo "1. Open VS Code"
-    echo "2. Install 'SFTP' extension by liximomo"
-    echo "3. Right-click on 'dist' folder"
-    echo "4. Select 'Upload Project'"
-    echo "5. Choose the '365' SFTP configuration"
-    echo ""
-    echo "🌐 Your site will be live at: http://72.167.58.121"
+    echo "🚀 Uploading to server..."
+    
+    # Upload files using SFTP
+    sftp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null kf3a3nkmn59k@72.167.58.121 << EOF
+        cd /home/kf3a3nkmn59k/public_html
+        put -r dist/* ./
+        ls -la | head -5
+        echo "✅ Upload completed!"
+        quit
+EOF
+    
+    if [ $? -eq 0 ]; then
+        echo ""
+        echo "🎉 DEPLOYMENT SUCCESSFUL!"
+        echo "🌐 Site is live at: https://365webdays.com"
+        echo "📂 Files uploaded to: /public_html/"
+    else
+        echo "❌ Upload failed! Please check SFTP connection."
+    fi
 else
     echo "❌ Build failed! Please check for errors."
 fi
