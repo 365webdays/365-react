@@ -26,7 +26,7 @@ const projects = [
   },
   { 
     name: 'MINIMUS', 
-    tech: 'React', 
+    tech: 'React + Tailwind', 
     screenshot: minimusPortfolioImage,
     description: 'A React-built artist site for Minimus, an electronic chillwave, ambient, and synthpop project. Features a custom-built media player designed to match the mood and aesthetic of the music.',
     url: 'https://minimus.music/',
