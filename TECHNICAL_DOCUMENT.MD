@@ -31,10 +31,6 @@ Top-level:
   - Notes about correct server folder structure
 - `verify-deployment.sh`
   - SFTP verification script (see note in Deploy section)
-- `.vscode/sftp.json`
-  - VS Code SFTP/FTP Sync config (contains secrets)
-- `.vscode/sftp.example.json`
-  - Template config for sharing
 
 Main app code:
 - `src/main.jsx`
@@ -146,7 +142,7 @@ Incorrect (do not create):
 
 A nested `public_html/dist` happens when you upload the `dist` directory itself rather than the **contents** of `dist`.
 
-### 6.4 Deploy method A: Scripted deploy (preferred when available)
+### 6.4 Production deployment
 
 - Command:
   - `npm run deploy`
@@ -157,33 +153,9 @@ What it does (`deploy.sh`):
 3. Uploads **contents** of the build directory via:
    - `put -r dist/* ./`
 
-This is the cleanest approach because it enforces the correct folder structure.
+This is the supported deployment method and enforces the correct folder structure.
 
-### 6.5 Deploy method B: VS Code SFTP/FTP Sync (Natizyskunk)
-
-Config file:
-- `.vscode/sftp.json`
-
-Current required settings:
-- `remotePath`: `/home/kf3a3nkmn59k/public_html`
-- watcher:
-  - `files`: `dist/**/*`
-  - `autoUpload`: `true`
-
-Recommended workflow (“Build → Upload”):
-1. Run `npm run build`
-2. Upload either:
-   - The full `dist/` contents into `public_html` (preferred)
-   - Or minimally upload:
-     - `dist/index.html`
-     - the new hashed JS/CSS in `dist/assets/` referenced by that `index.html`
-
-Common pitfalls:
-- **Permission denied**: usually caused by wrong `remotePath` (e.g. `/public_html`).
-- **Config Not Found**: typically happens if you run sync from a subfolder context where the extension can’t locate `.vscode/sftp.json`.
-- **Broken site after deploy**: uploading `index.html` without the new hashed asset(s), or uploading assets without updating `index.html`.
-
-### 6.6 Verification
+### 6.5 Verification
 
 From cPanel terminal, after deploying a new build, verify:
 
@@ -193,6 +165,15 @@ From cPanel terminal, after deploying a new build, verify:
 If you know the newest hashed bundle name (from your local build output), check it exists on the server:
 
 - `ls -la ~/public_html/assets/index-<HASH>.js`
+
+### 6.6 Structure verification
+
+Check for incorrect folder structures:
+
+- Check for nested dist folder (should NOT exist):
+  - `ls -la ~/public_html | grep dist`
+- Check for stray assets in home directory (should NOT exist):
+  - `ls -la ~/ | grep assets`
 
 Note about `verify-deployment.sh`:
 - The script currently `cd public_html` (relative) rather than `cd /home/kf3a3nkmn59k/public_html`.
@@ -220,6 +201,15 @@ Fix:
 - Remove the nested folder:
   - `rm -rf ~/public_html/dist`
 - Re-deploy correctly by uploading **dist contents** to `public_html`.
+
+### 7.4 Stray assets in home directory
+
+If an incorrect deployment created `~/assets` in your home directory:
+
+Fix:
+- Remove the stray folder:
+  - `rm -rf ~/assets`
+- Verify the correct assets exist in `~/public_html/assets/`
 
 ## 8) Security notes
 
