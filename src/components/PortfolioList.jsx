@@ -13,12 +13,13 @@ import engImage from '../assets/portfolio/portfolio_0006_eng.webp';
 import mmxImage from '../assets/portfolio/portfolio_0007_mmx.webp';
 import ffImage from '../assets/portfolio/portfolio_0008_ff.webp';
 import minimusPortfolioImage from '../assets/portfolio/minimus_portfolio.webp';
+import simImage from '../assets/portfolio/portfolio_sim.webp';
 import harbatsImage from '../assets/portfolio/portfolio_0010_harbats.webp';
 
 const projects = [
   { 
     name: 'SOURCEBOOK', 
-    tech: 'Laravel · MySQL', 
+    tech: 'Laravel _ MySQL', 
     screenshot: sourcebookImage,
     description: 'A Laravel-based B2B directory platform connecting Philippine businesses across industries. Features a searchable company directory, product listings, an interactive heat map, and a structured industry classification system.',
     url: 'https://sourcebook.ph/',
@@ -26,15 +27,23 @@ const projects = [
   },
   { 
     name: 'MINIMUS', 
-    tech: 'React + Tailwind', 
+    tech: 'React _ Tailwind', 
     screenshot: minimusPortfolioImage,
     description: 'A React-built artist site for Minimus, an electronic chillwave, ambient, and synthpop project. Features a custom-built media player designed to match the mood and aesthetic of the music.',
     url: 'https://minimus.music/',
     highlights: ['Custom React media player', 'Chillwave / ambient / synthpop catalogue', 'Fully bespoke UI built around the artist\'s sound and identity']
   },
   { 
+    name: 'GAEM)', 
+    tech: 'Laravel _ React', 
+    screenshot: simImage,
+    description: 'A persistent, narrative-driven web game where the player experiences the absurd, humorous, and occasionally existential life of an unemployed web developer. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system. Time is measured in game days only. No real-world clock, no login timestamps, no time-of-day mechanics.',
+    url: 'https://365webdays.com/sim',
+    highlights: ['Turn-based gameplay loop with Action Points (AP), stat management, and multiple endings (Hired vs Collapsed)', 'Dynamic narrative event system with conditional, risk-based, and randomized story outcomes', 'Custom portfolio decay system and cascading stat mechanics influencing gameplay and player decisions']
+  },
+  { 
     name: 'FAMILY FOOD', 
-    tech: 'WordPress · Custom MVC · MySQL', 
+    tech: 'WordPress _ Custom MVC _ MySQL', 
     screenshot: ffImage,
     description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
     url: 'https://familyfoodllc.com/',
@@ -42,9 +51,9 @@ const projects = [
   },
   { 
     name: 'HARBATS', 
-    tech: 'Laravel', 
+    tech: 'Next.js _React + TypeScript', 
     screenshot: harbatsImage,
-    description: 'A Laravel-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
+    description: 'A Next.js-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
     highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints', 'Minimal, atmosphere-first design built around the band\'s visual identity']
   },
