@@ -29,7 +29,7 @@ function App() {
           </div>
         </div>
         
-        <div className="flex-1">
+        <div className="flex-1" style={{ transform: isPortfolioActive ? 'translateY(-200px)' : 'translateY(0)', transition: 'transform 0.3s ease' }}>
           <PortfolioList onActiveChange={setIsPortfolioActive} />
         </div>
       </main>
