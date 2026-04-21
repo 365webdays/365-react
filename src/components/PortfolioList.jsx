@@ -34,7 +34,7 @@ const projects = [
     highlights: ['Custom React media player', 'Chillwave / ambient / synthpop catalogue', 'Fully bespoke UI built around the artist\'s sound and identity']
   },
   { 
-    name: 'GAEM)', 
+    name: 'GAEM', 
     tech: 'Laravel _ React', 
     screenshot: simImage,
     description: 'A persistent, narrative-driven web game where the player experiences the absurd, humorous, and occasionally existential life of an unemployed web developer. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system. Time is measured in game days only. No real-world clock, no login timestamps, no time-of-day mechanics.',
