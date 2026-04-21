@@ -202,29 +202,39 @@ const PortfolioList = ({ onActiveChange }) => {
       const items = container.querySelectorAll('.portfolio-item');
       
       if (items.length > 0) {
-        // Get current scroll position and calculate current item index
-        const currentScrollLeft = container.scrollLeft;
-        const itemWidth = items[0].offsetWidth;
-        const currentIndex = Math.round(currentScrollLeft / itemWidth);
-        
-        // Calculate next index with boundary protection
-        const nextIndex = direction === 'left' 
-          ? Math.max(0, currentIndex - 1)
-          : Math.min(items.length - 1, currentIndex + 1);
-        
-        // Scroll to exact position of next item for snap behavior
-        const targetScroll = nextIndex * itemWidth;
-        
-        container.scrollTo({
-          left: targetScroll,
-          behavior: 'smooth'
-        });
+        // If an item is active (expanded), activate the next/previous item
+        if (activeIndex !== null) {
+          const nextIndex = direction === 'left' 
+            ? Math.max(0, activeIndex - 1)
+            : Math.min(items.length - 1, activeIndex + 1);
+          
+          // Only activate if the index is different from current
+          if (nextIndex !== activeIndex) {
+            handleToggle(nextIndex);
+          }
+        } else {
+          // No item active - just scroll (existing behavior)
+          const currentScrollLeft = container.scrollLeft;
+          const itemWidth = items[0].offsetWidth;
+          const currentIndex = Math.round(currentScrollLeft / itemWidth);
+          
+          const nextIndex = direction === 'left' 
+            ? Math.max(0, currentIndex - 1)
+            : Math.min(items.length - 1, currentIndex + 1);
+          
+          const targetScroll = nextIndex * itemWidth;
+          
+          container.scrollTo({
+            left: targetScroll,
+            behavior: 'smooth'
+          });
+        }
       }
     }
   };
 
-  const canScrollLeft = scrollPosition > 0.01;
-  const canScrollRight = scrollPosition < 0.99;
+  const canScrollLeft = activeIndex !== null ? activeIndex > 0 : scrollPosition > 0.01;
+  const canScrollRight = activeIndex !== null ? activeIndex < projects.length - 1 : scrollPosition < 0.99;
 
   return (
     <div className={`portfolio-container ${activeIndex !== null ? 'active' : ''}`}>
