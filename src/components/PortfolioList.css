@@ -71,7 +71,7 @@
   font-size: 18px;
   font-weight: 700;
   color: #111111;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-arrow:hover:not(.disabled) {
@@ -193,7 +193,7 @@
   white-space: normal;
   padding: 20px;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: width 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), background-color 0.2s ease;
   position: relative;
   height: auto;
   min-height: auto;
@@ -219,7 +219,7 @@
   text-transform: uppercase;
   margin-bottom: 8px;
   line-height: 1.2;
-  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: font-size 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .portfolio-item.active .project-name {
@@ -518,7 +518,7 @@
   margin-top: 12px;
   padding: 2px 0;
   border-bottom: 2px solid transparent;
-  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-bottom-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   position: relative;
 }
 

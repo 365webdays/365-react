@@ -56,7 +56,9 @@ function App() {
                 : 'translateY(0)',
             transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             position: 'relative',
-            zIndex: isPortfolioActive && window.innerWidth > 768 ? 50 : 'auto'
+            zIndex: isPortfolioActive && window.innerWidth > 768 ? 50 : 'auto',
+            willChange: isPortfolioActive && window.innerWidth > 768 ? 'transform' : 'auto',
+            backfaceVisibility: isPortfolioActive && window.innerWidth > 768 ? 'hidden' : 'visible'
           }}
         >
           <PortfolioList onActiveChange={handlePortfolioActiveChange} />
