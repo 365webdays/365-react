@@ -43,9 +43,9 @@ const projects = [
   },
   { 
     name: 'FAMILY FOOD', 
-    tech: 'WordPress • Laravel • Custom PHP MVC Framework • MySQL', 
+    tech: 'Laravel • Bespoke MVC Framework', 
     screenshot: ffImage,
-    description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
+    description: 'A site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
     url: 'https://familyfoodllc.com/',
     highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Service pages covering nutrition counseling, pediatric nutrition, oncology, diabetes, prenatal nutrition, and corporate wellness', 'Virtual appointment booking via Calendly integration', 'Insurance acceptance prominently featured to reduce booking friction']
   },
