@@ -13,6 +13,17 @@
   margin-top: -180px;
 }
 
+@media (min-width: 769px) {
+  .portfolio-container {
+    transition: none;
+    margin-top: 0;
+  }
+
+  .portfolio-container.active {
+    margin-top: 0;
+  }
+}
+
 .portfolio-list {
   overflow-x: auto;
   overflow-y: visible;
