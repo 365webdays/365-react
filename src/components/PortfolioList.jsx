@@ -279,7 +279,9 @@ const PortfolioList = ({ onActiveChange }) => {
               ) : (
                 <div className="screenshot-placeholder"></div>
               )}
-              
+            </div>
+            
+            {activeIndex === index || window.innerWidth <= 768 ? (
               <div className="project-details">
                 <p className="project-description">{project.description}</p>
                 <ul className="project-highlights">
@@ -298,7 +300,7 @@ const PortfolioList = ({ onActiveChange }) => {
                   </a>
                 )}
               </div>
-            </div>
+            ) : null}
           </div>
         ))}
       </div>

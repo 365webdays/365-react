@@ -253,89 +253,15 @@
 }
 
 .screenshot {
-  width: 180px;
-  height: 180px;
+  width: 100%;
+  height: auto;
+  max-height: 300px;
   object-fit: cover;
   display: block;
-  float: left;
-  margin-right: 16px;
+  margin-bottom: 16px;
 }
 
-/* Features positioned to the right of thumbnail */
-.features-right {
-  float: left;
-  width: calc(100% - 196px); /* 180px image + 16px margin */
-  padding: 0 0 0 0;
-}
 
-.features-right .highlights-title {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  color: #111111;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 8px 0;
-}
-
-.features-right .highlights-list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px 0;
-}
-
-.features-right .highlight-item {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  color: #777777;
-  line-height: 1.4;
-  margin-bottom: 4px;
-  padding-left: 12px;
-  position: relative;
-}
-
-.features-right .highlight-item:before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #111111;
-}
-
-.features-right .project-description {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: #333333;
-  line-height: 1.5;
-  margin: 0 0 12px 0;
-}
-
-.features-right .project-url {
-  margin-bottom: 0;
-}
-
-.features-right .url-link {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  color: #CC0000;
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s ease;
-}
-
-.features-right .url-link:hover {
-  color: #111111;
-  text-decoration: underline;
-}
-
-/* Clear fix for floated elements */
-.screenshot-container::after {
-  content: "";
-  display: table;
-  clear: both;
-}
 .project-details {
   padding: 16px 0 0 0;
   opacity: 0;
