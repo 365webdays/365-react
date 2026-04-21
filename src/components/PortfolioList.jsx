@@ -19,7 +19,7 @@ import harbatsImage from '../assets/portfolio/portfolio_0010_harbats.webp';
 const projects = [
   { 
     name: 'SOURCEBOOK', 
-    tech: 'Laravel _ MySQL', 
+    tech: 'Laravel • MySQL', 
     screenshot: sourcebookImage,
     description: 'A Laravel-based B2B directory platform connecting Philippine businesses across industries. Features a searchable company directory, product listings, an interactive heat map, and a structured industry classification system.',
     url: 'https://sourcebook.ph/',
@@ -27,7 +27,7 @@ const projects = [
   },
   { 
     name: 'MINIMUS', 
-    tech: 'React _ Tailwind', 
+    tech: 'React • Tailwind', 
     screenshot: minimusPortfolioImage,
     description: 'A React-built artist site for Minimus, an electronic chillwave, ambient, and synthpop project. Features a custom-built media player designed to match the mood and aesthetic of the music.',
     url: 'https://minimus.music/',
@@ -35,7 +35,7 @@ const projects = [
   },
   { 
     name: 'GAEM', 
-    tech: 'Laravel _ React', 
+    tech: 'Laravel • React', 
     screenshot: simImage,
     description: 'A persistent, narrative-driven web game where the player experiences the absurd, humorous, and occasionally existential life of an unemployed web developer. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system. Time is measured in game days only. No real-world clock, no login timestamps, no time-of-day mechanics.',
     url: 'https://365webdays.com/sim',
@@ -43,7 +43,7 @@ const projects = [
   },
   { 
     name: 'FAMILY FOOD', 
-    tech: 'WordPress _ Custom MVC _ MySQL', 
+    tech: 'WordPress • Laravel • Custom PHP MVC Framework • MySQL', 
     screenshot: ffImage,
     description: 'A WordPress site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
     url: 'https://familyfoodllc.com/',
@@ -51,7 +51,7 @@ const projects = [
   },
   { 
     name: 'HARBATS', 
-    tech: 'Next.js _React + TypeScript', 
+    tech: 'Next.js • React + TypeScript', 
     screenshot: harbatsImage,
     description: 'A Next.js-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
@@ -59,7 +59,7 @@ const projects = [
   },
   { 
     name: 'RAMP HEALTH', 
-    tech: 'WordPress · Custom MVC', 
+    tech: 'WordPress • Custom MVC', 
     screenshot: rampHealthImage,
     description: 'A WordPress-built corporate health and wellness platform serving employers, health plans, and government clients across the US. Covers the full continuum of care — from clinical services and health screenings to digital health, AI risk mitigation, and employee wellbeing programs.',
     url: 'https://ramphealth.com/',
@@ -67,7 +67,7 @@ const projects = [
   },
   { 
     name: 'TATTUMUNDO', 
-    tech: 'WordPress · Woocommerce', 
+    tech: 'WordPress • Woocommerce', 
     screenshot: tattuImage,
     description: 'A WordPress WooCommerce e-commerce platform for Tattumundo, a Philippine-based temporary tattoo brand featuring designs by local independent artists. Each collection is artist-led, with its own name, story, and aesthetic.',
     url: 'https://tattumundo.com/',
@@ -83,7 +83,7 @@ const projects = [
   },
   { 
     name: "PEOPLE'S CHOICE TAX", 
-    tech: 'WordPress · PHP', 
+    tech: 'WordPress • PHP', 
     screenshot: pctaxImage,
     description: 'A WordPress site for People\'s Choice Tax and Accounting, an independent income tax preparation and bookkeeping firm based in Tustin, Orange County, California. The site serves small business owners and individuals looking for personal, locally owned financial services.',
     url: 'https://www.pctaxservice.com/',
