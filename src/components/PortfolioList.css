@@ -252,6 +252,24 @@
   margin-top: 16px;
 }
 
+/* Desktop: Horizontal layout - screenshot left, text right */
+@media (min-width: 769px) {
+  .screenshot-container.expanded {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .screenshot {
+    width: 50%;
+    margin-bottom: 0;
+  }
+  
+  .project-details {
+    width: 50%;
+    padding: 0;
+  }
+}
+
 .screenshot {
   width: 100%;
   height: auto;
