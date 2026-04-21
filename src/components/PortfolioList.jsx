@@ -37,7 +37,7 @@ const projects = [
     name: 'GAEM', 
     tech: 'Laravel • React', 
     screenshot: simImage,
-    description: 'A persistent, narrative-driven web game where the player experiences the absurd, humorous, and occasionally existential life of an unemployed web developer. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system. Time is measured in game days only. No real-world clock, no login timestamps, no time-of-day mechanics.',
+    description: 'A persistent, narrative-driven web game. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system.',
     url: 'https://365webdays.com/sim',
     highlights: ['Turn-based gameplay loop with Action Points (AP), stat management, and multiple endings (Hired vs Collapsed)', 'Dynamic narrative event system with conditional, risk-based, and randomized story outcomes', 'Custom portfolio decay system and cascading stat mechanics influencing gameplay and player decisions']
   },
@@ -45,9 +45,9 @@ const projects = [
     name: 'FAMILY FOOD', 
     tech: 'Laravel • Bespoke MVC Framework', 
     screenshot: ffImage,
-    description: 'A site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling for individuals, families, and organizations. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
+    description: 'A site for Family Food LLC, a Philadelphia-based Registered Dietitian Nutritionist practice offering personalized nutrition counseling. The site serves as both a service platform and a lead generation tool for a practice that accepts most health insurance plans.',
     url: 'https://familyfoodllc.com/',
-    highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Service pages covering nutrition counseling, pediatric nutrition, oncology, diabetes, prenatal nutrition, and corporate wellness', 'Virtual appointment booking via Calendly integration', 'Insurance acceptance prominently featured to reduce booking friction']
+    highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Insurance acceptance prominently featured to reduce booking friction']
   },
   { 
     name: 'HARBATS', 
@@ -55,7 +55,7 @@ const projects = [
     screenshot: harbatsImage,
     description: 'A Next.js-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
-    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints', 'Minimal, atmosphere-first design built around the band\'s visual identity']
+    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints']
   },
   { 
     name: 'RAMP HEALTH', 
@@ -79,7 +79,7 @@ const projects = [
     screenshot: ppImage,
     description: 'A WordPress membership site for Studio PP, a boutique Pilates and functional fitness studio founded by Australian Winter Olympian Steph Prem. The site serves both the physical Melbourne studio and an online membership platform offering on-demand Pilates, barre, and functional fitness classes.',
     url: 'https://studiopp.com.au/',
-    highlights: ['Membership and subscription system with monthly and yearly pricing tiers', 'Online studio with on-demand class access via MindBody integration', '21-day challenge sign-up and members portal', 'Event and workshop pages for live and retreats', 'Corporate Pilates and speaking engagement sections', 'Newsletter sign-up with free class incentive']
+    highlights: ['Membership and subscription system with monthly and yearly pricing tiers', 'Online studio with on-demand class access via MindBody integration', '21-day challenge sign-up and members portal', 'Event and workshop pages for live and retreats']
   },
   { 
     name: "PEOPLE'S CHOICE TAX", 
@@ -103,7 +103,7 @@ const projects = [
     screenshot: wartonImage,
     description: 'A WordPress site for Warton Education, a college admissions and test prep consultancy founded by a Harvard graduate with 18 years of tutoring experience. The site serves high school students pursuing SAT, ACT, and AP preparation alongside personalized college consulting for top-tier university admissions.',
     url: 'https://wartoneducation.com/',
-    highlights: ['Course pages for SAT, ACT, and AP online programs', 'Separate sections for online tutoring and college consulting services', 'Student results and reviews pages with verified admissions outcomes', 'Blog with test prep and college admissions news', 'Notable stats prominently displayed including 5 perfect SAT scores and 20 perfect ACT scores since 2016']
+    highlights: ['Course pages for SAT, ACT, and AP online programs', 'Separate sections for online tutoring and college consulting services', 'Student results and reviews pages with verified admissions outcomes']
   },
   { 
     name: 'ENG APP', 
@@ -119,7 +119,7 @@ const projects = [
     screenshot: mmxImage,
     description: 'A WordPress site for media.Xchange Public Relations, a boutique PR and events firm founded in 2007 and recognized as one of the best boutique PR agencies in Asia-Pacific at the 2022 and 2024 PR Awards Asia. The site serves as the agency\'s primary digital presence, showcasing their services, client roster, press releases, and career opportunities.',
     url: 'https://mediadotexchange.com/',
-    highlights: ['Full-screen slider-driven layout with sectioned storytelling', 'Comprehensive services pages covering media relations, events management, social media, content creation, and policy communications', 'Extensive client roster page featuring over 80 clients including NBA, UNICEF, Bloomberg, L\'Oreal, Warner Music Group, and the United Nations', 'Press releases section with featured coverage', 'Careers portal with active job listings', 'Bilingual-ready contact and inquiry system']
+    highlights: ['Full-screen slider-driven layout with sectioned storytelling', 'Press releases section with featured coverage', 'Careers portal with active job listings', 'Bilingual-ready contact and inquiry system']
   }
 ];
 
