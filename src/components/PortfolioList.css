@@ -23,6 +23,11 @@
   min-height: auto;
   display: flex;
   align-items: flex-start;
+  cursor: grab;
+}
+
+.portfolio-list:active {
+  cursor: grabbing;
 }
 
 /* Mobile-specific portfolio list - remove padding for single item display */
