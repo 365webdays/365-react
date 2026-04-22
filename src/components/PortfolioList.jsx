@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './PortfolioList.css';
 
 // Import portfolio images
@@ -129,42 +129,51 @@ const PortfolioList = ({ onActiveChange }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const portfolioListRef = useRef(null);
 
+  useEffect(() => {
+    const isDesktop = window.innerWidth > 768;
+    if (!isDesktop) return;
+    if (activeIndex === null) return;
+    if (!portfolioListRef.current) return;
+
+    const container = portfolioListRef.current;
+    const items = container.querySelectorAll('.portfolio-item');
+    const item = items[activeIndex];
+    if (!item) return;
+
+    const centerItem = () => {
+      const containerRect = container.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+
+      const containerCenterX = containerRect.left + containerRect.width / 2;
+      const itemCenterX = itemRect.left + itemRect.width / 2;
+      const deltaX = itemCenterX - containerCenterX;
+
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const targetScrollLeft = container.scrollLeft + deltaX;
+      const finalScrollLeft = Math.min(maxScrollLeft, Math.max(0, targetScrollLeft));
+
+      container.scrollTo({
+        left: finalScrollLeft,
+        behavior: 'smooth'
+      });
+    };
+
+    const raf1 = requestAnimationFrame(() => {
+      centerItem();
+    });
+
+    const timeoutId = window.setTimeout(() => {
+      centerItem();
+    }, 300);
+
+    return () => {
+      cancelAnimationFrame(raf1);
+      window.clearTimeout(timeoutId);
+    };
+  }, [activeIndex]);
+
   const handleToggle = (index) => {
-    // Check if item is fully visible, if not, scroll it into view first
-    if (portfolioListRef.current) {
-      const container = portfolioListRef.current;
-      const itemWidth = 280; // Base width of portfolio item
-      const expandedWidth = 480; // Expanded width for desktop
-      const scrollLeft = container.scrollLeft;
-      const containerWidth = container.clientWidth;
-      const itemPosition = index * itemWidth;
-      
-      // Check if item is not fully visible OR if expanded item would go off-screen
-      const itemStart = itemPosition - scrollLeft;
-      const itemEnd = itemStart + itemWidth;
-      const expandedEnd = itemStart + expandedWidth;
-      
-      if (itemStart < 0 || expandedEnd > containerWidth) {
-        // Calculate scroll position so expanded item's right edge sticks to screen edge
-        const targetScroll = itemPosition + expandedWidth - containerWidth;
-        
-        // Ensure we don't scroll past the beginning (minimum scroll = 0)
-        const finalScroll = Math.max(0, targetScroll);
-        
-        container.scrollTo({
-          left: finalScroll,
-          behavior: 'smooth'
-        });
-        
-        // Wait for scroll to complete, then activate
-        setTimeout(() => {
-          activateItem(index);
-        }, 400); // Wait for smooth scroll to complete
-      } else {
-        // Item is fully visible and expansion fits, activate immediately
-        activateItem(index);
-      }
-    }
+    activateItem(index);
   };
 
   const activateItem = (index) => {
@@ -292,15 +301,17 @@ const PortfolioList = ({ onActiveChange }) => {
             <div className="secondary-rule"></div>
             
             <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''} ${window.innerWidth <= 768 ? 'mobile-always-open' : ''}`}>
-              {project.screenshot ? (
-                <img 
-                  src={project.screenshot} 
-                  alt={`${project.name} screenshot`}
-                  className="screenshot"
-                />
-              ) : (
-                <div className="screenshot-placeholder"></div>
-              )}
+              <div className="screenshot-reveal">
+                {project.screenshot ? (
+                  <img 
+                    src={project.screenshot} 
+                    alt={`${project.name} screenshot`}
+                    className="screenshot"
+                  />
+                ) : (
+                  <div className="screenshot-placeholder"></div>
+                )}
+              </div>
             </div>
             
             {activeIndex === index || window.innerWidth <= 768 ? (

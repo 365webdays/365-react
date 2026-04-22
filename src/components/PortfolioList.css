@@ -258,14 +258,29 @@
 
 .screenshot-container {
   overflow: hidden;
-  max-height: 16px;
-  transition: max-height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), margin-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), margin-top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   margin-top: 0;
 }
 
 .screenshot-container.expanded {
-  max-height: 2000px; /* Large enough to accommodate any content */
+  grid-template-rows: 1fr;
   margin-top: 16px;
+}
+
+.screenshot-reveal {
+  min-height: 0;
+  transform-origin: top;
+  transform: scaleY(0.98);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.screenshot-container.expanded .screenshot-reveal {
+  transform: scaleY(1);
+  opacity: 1;
 }
 
 /* Desktop: Horizontal layout - screenshot left, text right */
@@ -396,10 +411,17 @@
   
   /* MOBILE-ONLY: All items open by default, cannot be collapsed */
   .screenshot-container.mobile-always-open {
-    max-height: none !important;
+    grid-template-rows: 1fr !important;
     margin-top: 16px !important;
     overflow: visible !important;
     transition: none !important;
+  }
+
+  .screenshot-container.mobile-always-open .screenshot-reveal {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    will-change: auto !important;
   }
   
   /* FORCE ALL CONTENT VISIBLE ON MOBILE - AGGRESSIVE OVERRIDES */
