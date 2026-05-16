@@ -25,12 +25,10 @@ Top-level:
   - Tailwind `content` scan paths for Vite/React
 - `postcss.config.js`
   - Tailwind + Autoprefixer
+- `.github/workflows/deploy.yml`
+  - **Primary deploy path.** GitHub Actions workflow that auto-builds and SFTPs to production on every push to `main`.
 - `deploy.sh`
-  - Build + SFTP upload to production
-- `test-upload.sh`
-  - Notes about correct server folder structure
-- `verify-deployment.sh`
-  - SFTP verification script (see note in Deploy section)
+  - Manual fallback. Builds and SFTPs to production from a local bash shell. Used only if Actions is unavailable.
 
 Main app code:
 - `src/main.jsx`
@@ -142,72 +140,86 @@ Incorrect (do not create):
 
 A nested `public_html/dist` happens when you upload the `dist` directory itself rather than the **contents** of `dist`.
 
-### 6.4 Production deployment
+### 6.4 Primary deploy: GitHub Actions (auto on push)
 
-- Command:
-  - `npm run deploy`
-
-What it does (`deploy.sh`):
-1. Runs `npm run build`
-2. Uses `sftp` to connect and `cd /home/kf3a3nkmn59k/public_html`
-3. Uploads **contents** of the build directory via:
-   - `put -r dist/* ./`
-
-This is the supported deployment method and enforces the correct folder structure.
-
-### 6.5 Verification
-
-From cPanel terminal, after deploying a new build, verify:
-
-- `ls -la ~/public_html/index.html`
-- `ls -la ~/public_html/assets | head`
-
-If you know the newest hashed bundle name (from your local build output), check it exists on the server:
-
-- `ls -la ~/public_html/assets/index-<HASH>.js`
-
-### 6.6 Structure verification
-
-Check for incorrect folder structures:
-
-- Check for nested dist folder (should NOT exist):
-  - `ls -la ~/public_html | grep dist`
-- Check for stray assets in home directory (should NOT exist):
-  - `ls -la ~/ | grep assets`
-
-Note about `verify-deployment.sh`:
-- The script currently `cd public_html` (relative) rather than `cd /home/kf3a3nkmn59k/public_html`.
-- If your SFTP login starts in your home directory, `cd public_html` will work; otherwise adjust the script.
-
-### 6.7 Automated deployment via GitHub Actions (preferred)
-
-A GitHub Actions workflow at `.github/workflows/deploy.yml` deploys automatically.
+Workflow: `.github/workflows/deploy.yml`.
 
 Triggers:
-- Every push to `main` branch.
-- Manual `workflow_dispatch` from the Actions tab (used for **rollback**: re-run a workflow on an older commit).
+- Every push to `main`.
+- Manual `workflow_dispatch` from the Actions tab (used for rollback).
 
 What it does:
-1. Checkout repo.
-2. `npm ci` and `npm run build`.
-3. SFTP `dist/*` (contents only) to `${SFTP_REMOTE_DIR}` on `${SFTP_HOST}` using SSH key authentication.
+1. `actions/checkout`
+2. `actions/setup-node@v4` (Node 20, npm cache)
+3. `npm ci`
+4. `npm run build`
+5. SFTP `./dist/*` → `${SFTP_REMOTE_DIR}` via `wlixcc/SFTP-Deploy-Action` using SSH key auth
+
+Day-to-day usage:
+```
+git add -A
+git commit -m "..."
+git push origin main
+```
+→ production updated in ~1–2 minutes. Watch progress at `https://github.com/365webdays/365-react/actions`.
 
 Required GitHub repo secrets (Settings → Secrets and variables → Actions):
-- `SFTP_HOST` = `72.167.58.121`
-- `SFTP_USERNAME` = `kf3a3nkmn59k`
-- `SFTP_PRIVATE_KEY` = full private key contents (ed25519, no passphrase)
-- `SFTP_REMOTE_DIR` = `/home/kf3a3nkmn59k/public_html`
+| Name | Value |
+|---|---|
+| `SFTP_HOST` | `72.167.58.121` |
+| `SFTP_USERNAME` | `kf3a3nkmn59k` |
+| `SFTP_REMOTE_DIR` | `/home/kf3a3nkmn59k/public_html` |
+| `SFTP_PRIVATE_KEY` | full private key contents (ed25519, no passphrase) |
 
-SSH key setup (one-time):
+SSH key setup (one-time, already done):
 1. Generate keypair locally: `ssh-keygen -t ed25519 -C "github-actions-365webdays" -f ~/.ssh/365webdays_deploy -N ""`
 2. cPanel → SSH Access → Manage SSH Keys → Import Key → paste public key → **Authorize**.
 3. Paste the private key into the `SFTP_PRIVATE_KEY` GitHub secret.
 
-Rollback:
-- Actions tab → pick a previous successful run → **Re-run all jobs**.
-- Or `git revert <sha> && git push` to deploy the reverted state.
+### 6.5 Manual fallback: `npm run deploy`
 
-The local `deploy.sh` (`npm run deploy`) is retained as a manual fallback if Actions are unavailable.
+Use only if GitHub Actions is unavailable.
+
+Command (Windows PowerShell):
+```
+& 'C:\Program Files\Git\bin\bash.exe' deploy.sh
+```
+Or from Git Bash / Linux / macOS: `./deploy.sh`.
+
+What `deploy.sh` does:
+1. `npm run build`
+2. `sftp` connect → `cd /home/kf3a3nkmn59k/public_html`
+3. `put -r dist/* ./` (uploads **contents**, not the `dist/` folder)
+
+It prompts for the cPanel password interactively.
+
+### 6.6 Verification
+
+From cPanel terminal (or `ssh -i ~/.ssh/365webdays_deploy kf3a3nkmn59k@72.167.58.121`) after a deploy:
+
+```
+ls -la ~/public_html/index.html
+ls -la ~/public_html/assets | head
+ls -la ~/public_html | grep dist   # should be empty (no nested dist/)
+ls -la ~/ | grep assets            # should be empty (no stray assets in $HOME)
+```
+
+If you know the newest hashed bundle name from the build output, confirm it exists:
+```
+ls -la ~/public_html/assets/index-<HASH>.js
+```
+
+### 6.7 Rollback
+
+Fastest path:
+- GitHub → **Actions** tab → open a previous successful run → **Re-run all jobs**. Re-deploys that exact commit's build.
+
+Git-level rollback:
+```
+git revert <bad-sha>
+git push origin main
+```
+Auto-deploys the reverted state via the workflow.
 
 ## 7) Troubleshooting
 
@@ -243,6 +255,9 @@ Fix:
 
 ## 8) Security notes
 
-- `.vscode/sftp.json` contains a plaintext password.
-- This repo is configured to ignore `.vscode/sftp.json` via `.gitignore` and provides `.vscode/sftp.example.json` as a safe template.
-- If the password has ever been committed or shared, rotate it in cPanel.
+- Production deploys use **SSH key authentication** (ed25519), not passwords. The private key lives only in:
+  - Your local `~/.ssh/365webdays_deploy` (not in the repo)
+  - The `SFTP_PRIVATE_KEY` GitHub repo secret (encrypted at rest, only readable by the workflow)
+- The cPanel account password is never stored in this repo, the workflow, or your local working tree.
+- `.vscode/sftp.json` is gitignored; a template lives at `.vscode/sftp.example.json` if you ever need a VSCode SFTP setup. Do not commit credentials.
+- If the deploy SSH key is compromised: revoke it in cPanel → SSH Access → Manage SSH Keys, generate a new one, and update the `SFTP_PRIVATE_KEY` GitHub secret.
