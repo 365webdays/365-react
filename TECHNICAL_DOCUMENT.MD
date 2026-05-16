@@ -179,6 +179,36 @@ Note about `verify-deployment.sh`:
 - The script currently `cd public_html` (relative) rather than `cd /home/kf3a3nkmn59k/public_html`.
 - If your SFTP login starts in your home directory, `cd public_html` will work; otherwise adjust the script.
 
+### 6.7 Automated deployment via GitHub Actions (preferred)
+
+A GitHub Actions workflow at `.github/workflows/deploy.yml` deploys automatically.
+
+Triggers:
+- Every push to `main` branch.
+- Manual `workflow_dispatch` from the Actions tab (used for **rollback**: re-run a workflow on an older commit).
+
+What it does:
+1. Checkout repo.
+2. `npm ci` and `npm run build`.
+3. SFTP `dist/*` (contents only) to `${SFTP_REMOTE_DIR}` on `${SFTP_HOST}` using SSH key authentication.
+
+Required GitHub repo secrets (Settings → Secrets and variables → Actions):
+- `SFTP_HOST` = `72.167.58.121`
+- `SFTP_USERNAME` = `kf3a3nkmn59k`
+- `SFTP_PRIVATE_KEY` = full private key contents (ed25519, no passphrase)
+- `SFTP_REMOTE_DIR` = `/home/kf3a3nkmn59k/public_html`
+
+SSH key setup (one-time):
+1. Generate keypair locally: `ssh-keygen -t ed25519 -C "github-actions-365webdays" -f ~/.ssh/365webdays_deploy -N ""`
+2. cPanel → SSH Access → Manage SSH Keys → Import Key → paste public key → **Authorize**.
+3. Paste the private key into the `SFTP_PRIVATE_KEY` GitHub secret.
+
+Rollback:
+- Actions tab → pick a previous successful run → **Re-run all jobs**.
+- Or `git revert <sha> && git push` to deploy the reverted state.
+
+The local `deploy.sh` (`npm run deploy`) is retained as a manual fallback if Actions are unavailable.
+
 ## 7) Troubleshooting
 
 ### 7.1 Deploy ran but site didn’t change
