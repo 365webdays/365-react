@@ -128,6 +128,27 @@ const PortfolioList = ({ onActiveChange }) => {
   const [isRaised, setIsRaised] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const portfolioListRef = useRef(null);
+  const scrollAnimRef = useRef(null);
+
+  const smoothScrollTo = (el, target, duration = 450) => {
+    if (scrollAnimRef.current) cancelAnimationFrame(scrollAnimRef.current);
+    const start = el.scrollLeft;
+    const change = target - start;
+    if (change === 0) return;
+    const startTime = performance.now();
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const step = (now) => {
+      const t = Math.min(1, (now - startTime) / duration);
+      el.scrollLeft = start + change * easeOutCubic(t);
+      if (t < 1) {
+        scrollAnimRef.current = requestAnimationFrame(step);
+      } else {
+        scrollAnimRef.current = null;
+      }
+    };
+    scrollAnimRef.current = requestAnimationFrame(step);
+  };
 
   useEffect(() => {
     const isDesktop = window.innerWidth > 768;
@@ -162,13 +183,8 @@ const PortfolioList = ({ onActiveChange }) => {
       centerItem();
     });
 
-    const timeoutId = window.setTimeout(() => {
-      centerItem();
-    }, 300);
-
     return () => {
       cancelAnimationFrame(raf1);
-      window.clearTimeout(timeoutId);
     };
   }, [activeIndex]);
 
@@ -222,21 +238,17 @@ const PortfolioList = ({ onActiveChange }) => {
             handleToggle(nextIndex);
           }
         } else {
-          // No item active - just scroll (existing behavior)
-          const currentScrollLeft = container.scrollLeft;
+          // No item active - smoothly scroll by exactly one item width
+          // relative to the current scroll position (no index snapping).
           const itemWidth = items[0].offsetWidth;
-          const currentIndex = Math.round(currentScrollLeft / itemWidth);
-          
-          const nextIndex = direction === 'left' 
-            ? Math.max(0, currentIndex - 1)
-            : Math.min(items.length - 1, currentIndex + 1);
-          
-          const targetScroll = nextIndex * itemWidth;
-          
-          container.scrollTo({
-            left: targetScroll,
-            behavior: 'smooth'
-          });
+          const delta = direction === 'left' ? -itemWidth : itemWidth;
+          const maxScrollLeft = container.scrollWidth - container.clientWidth;
+          const targetScroll = Math.min(
+            maxScrollLeft,
+            Math.max(0, container.scrollLeft + delta)
+          );
+
+          smoothScrollTo(container, targetScroll, 450);
         }
       }
     }
