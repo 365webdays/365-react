@@ -8,14 +8,11 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "./deploy.sh",
-    "deploy-live": "./deploy-secure.sh",
-    "deploy-safe": "./deploy-foolproof.sh"
+    "deploy": "./deploy.sh"
   },
   "dependencies": {
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "sharp": "^0.34.5"
+    "react-dom": "^19.2.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

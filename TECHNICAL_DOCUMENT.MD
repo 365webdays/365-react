@@ -259,5 +259,5 @@ Fix:
   - Your local `~/.ssh/365webdays_deploy` (not in the repo)
   - The `SFTP_PRIVATE_KEY` GitHub repo secret (encrypted at rest, only readable by the workflow)
 - The cPanel account password is never stored in this repo, the workflow, or your local working tree.
-- `.vscode/sftp.json` is gitignored; a template lives at `.vscode/sftp.example.json` if you ever need a VSCode SFTP setup. Do not commit credentials.
+- `.vscode/sftp.json` is gitignored. Do not commit credentials of any kind to this repo.
 - If the deploy SSH key is compromised: revoke it in cPanel → SSH Access → Manage SSH Keys, generate a new one, and update the `SFTP_PRIVATE_KEY` GitHub secret.
