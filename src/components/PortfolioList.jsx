@@ -55,7 +55,7 @@ const projects = [
     screenshot: harbatsImage,
     description: 'A Next.js-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
-    highlights: ['Custom Laravel media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints']
+    highlights: ['Custom Next.js media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints']
   },
   { 
     name: 'RAMP HEALTH', 
