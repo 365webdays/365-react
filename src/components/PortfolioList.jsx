@@ -49,13 +49,13 @@ const projects = [
     url: 'https://familyfoodllc.com/',
     highlights: ['Custom MVC architecture with MySQL powering a bespoke appointment management system', 'Dual audience structure serving individuals and organizations separately', 'Insurance acceptance prominently featured to reduce booking friction']
   },
-  { 
-    name: 'HARBATS', 
-    tech: 'Next.js • React + TypeScript', 
+  {
+    name: 'HARBATS',
+    tech: 'Astro • Tailwind + TypeScript',
     screenshot: harbatsImage,
-    description: 'A Next.js-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
+    description: 'An Astro-built artist site for Harbats, an enigmatic Manila-based band known for their distinct take on the iconic Manila sound. The site features a custom-built media player designed around the band\'s rolling single release series, giving fans a purpose-built listening experience rather than a generic streaming embed.',
     url: 'https://harbats.com/',
-    highlights: ['Custom Next.js media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints']
+    highlights: ['Custom Astro media player built specifically for the band\'s release format', 'Chronological single release tracker displaying the full discography rollout', 'Streaming platform integration linking to YouTube Music and Deezer as secondary touchpoints']
   },
   { 
     name: 'RAMP HEALTH', 
