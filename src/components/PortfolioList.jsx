@@ -13,7 +13,6 @@ import engImage from '../assets/portfolio/portfolio_0006_eng.webp';
 import mmxImage from '../assets/portfolio/portfolio_0007_mmx.webp';
 import ffImage from '../assets/portfolio/portfolio_0008_ff.webp';
 import minimusPortfolioImage from '../assets/portfolio/minimus_portfolio.webp';
-import simImage from '../assets/portfolio/portfolio_sim.webp';
 import harbatsImage from '../assets/portfolio/portfolio_0010_harbats.webp';
 
 const projects = [
@@ -32,14 +31,6 @@ const projects = [
     description: 'A React-built artist site for Minimus, an electronic chillwave, ambient, and synthpop project. Features a custom-built media player designed to match the mood and aesthetic of the music.',
     url: 'https://minimus.music/',
     highlights: ['Custom React media player', 'Chillwave / ambient / synthpop catalogue', 'Fully bespoke UI built around the artist\'s sound and identity']
-  },
-  { 
-    name: 'GAEM', 
-    tech: 'Laravel • React', 
-    screenshot: simImage,
-    description: 'A persistent, narrative-driven web game. The game blends satire of modern web development culture, freelance instability, and tech burnout with a lightweight progression system.',
-    url: 'https://365webdays.com/sim',
-    highlights: ['Turn-based gameplay loop with Action Points (AP), stat management, and multiple endings (Hired vs Collapsed)', 'Dynamic narrative event system with conditional, risk-based, and randomized story outcomes', 'Custom portfolio decay system and cascading stat mechanics influencing gameplay and player decisions']
   },
   { 
     name: 'FAMILY FOOD', 
