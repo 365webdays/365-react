@@ -73,10 +73,7 @@ function App() {
           </div>
           
           <div className="footer-contact">
-            <a href="#" className="footer-email" onClick={(e) => {
-              e.preventDefault();
-              window.location.href = 'mailto' + ':' + 'hello' + '@' + '365webdays' + '.' + 'com';
-            }}>
+            <a href="mailto:hello@365webdays.com" className="footer-email">
               hello [at] 365webdays [dot] com
             </a>
           </div>
