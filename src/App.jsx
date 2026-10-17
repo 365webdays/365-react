@@ -2,15 +2,15 @@ import React, { useRef, useState } from 'react';
 import logo from './assets/365webdays_web_design_development.png';
 import PortfolioList from './components/PortfolioList';
 import './components/Footer.css';
+import { useDesktop } from './hooks/useMediaQuery';
 
 function App() {
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
   const [portfolioLiftPx, setPortfolioLiftPx] = useState(0);
   const portfolioWrapRef = useRef(null);
+  const isDesktop = useDesktop();
 
   const handlePortfolioActiveChange = (isActive) => {
-    const isDesktop = window.innerWidth > 768;
-
     if (isActive && isDesktop && portfolioWrapRef.current) {
       const { top } = portfolioWrapRef.current.getBoundingClientRect();
       setPortfolioLiftPx(top);
@@ -51,14 +51,14 @@ function App() {
           className="flex-1"
           style={{
             transform:
-              isPortfolioActive && window.innerWidth > 768
+              isPortfolioActive && isDesktop
                 ? `translateY(-${portfolioLiftPx}px)`
                 : 'translateY(0)',
             transition: 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
             position: 'relative',
-            zIndex: isPortfolioActive && window.innerWidth > 768 ? 50 : 'auto',
-            willChange: isPortfolioActive && window.innerWidth > 768 ? 'transform' : 'auto',
-            backfaceVisibility: isPortfolioActive && window.innerWidth > 768 ? 'hidden' : 'visible'
+            zIndex: isPortfolioActive && isDesktop ? 50 : 'auto',
+            willChange: isPortfolioActive && isDesktop ? 'transform' : 'auto',
+            backfaceVisibility: isPortfolioActive && isDesktop ? 'hidden' : 'visible'
           }}
         >
           <PortfolioList onActiveChange={handlePortfolioActiveChange} />
