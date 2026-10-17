@@ -53,10 +53,7 @@ const PortfolioList = ({ onActiveChange }) => {
       const targetScrollLeft = container.scrollLeft + deltaX;
       const finalScrollLeft = Math.min(maxScrollLeft, Math.max(0, targetScrollLeft));
 
-      container.scrollTo({
-        left: finalScrollLeft,
-        behavior: 'smooth'
-      });
+      smoothScrollTo(container, finalScrollLeft, 450);
     };
 
     const raf1 = requestAnimationFrame(() => {
@@ -66,7 +63,7 @@ const PortfolioList = ({ onActiveChange }) => {
     return () => {
       cancelAnimationFrame(raf1);
     };
-  }, [activeIndex]);
+  }, [activeIndex, isDesktop]);
 
   const handleToggle = (index) => {
     activateItem(index);
