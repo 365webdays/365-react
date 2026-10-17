@@ -27,9 +27,9 @@ function App() {
     <div className="w-screen min-h-screen bg-[#F7F7F5] flex flex-col">
       <header className="w-full py-6 px-4">
         <div className="max-w-7xl mx-auto">
-          <img 
-            src={logo} 
-            alt="365 Web Days Logo" 
+          <img
+            src={logo}
+            alt="365 Web Days Logo"
             className="h-12 w-auto object-contain"
           />
         </div>
