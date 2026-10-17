@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Load environment variables from .env file
+if [ -f .env ]; then
+    export $(cat .env | grep -v '^#' | xargs)
+fi
+
 echo "🚀 Starting deployment process..."
 
 # Build React app
@@ -13,11 +18,10 @@ if [ $? -eq 0 ]; then
     echo ""
     echo "🚀 Uploading to server..."
     
-    # Upload files using SFTP
-    sftp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null kf3a3nkmn59k@72.167.58.121 << EOF
+    # Upload files using SFTP with password from environment
+    sshpass -p "$SFTP_PASSWORD" sftp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null kf3a3nkmn59k@72.167.58.121 << EOF
         cd /home/kf3a3nkmn59k/public_html
         put -r dist/* ./
-        ls -la | head -5
         echo "✅ Upload completed!"
         quit
 EOF
