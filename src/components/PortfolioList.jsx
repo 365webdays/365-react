@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './PortfolioList.css';
 import { projects } from '../data/projects';
+import { useDesktop } from '../hooks/useMediaQuery';
 
 const PortfolioList = ({ onActiveChange }) => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -8,6 +9,7 @@ const PortfolioList = ({ onActiveChange }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const portfolioListRef = useRef(null);
   const scrollAnimRef = useRef(null);
+  const isDesktop = useDesktop();
 
   const smoothScrollTo = (el, target, duration = 450) => {
     if (scrollAnimRef.current) cancelAnimationFrame(scrollAnimRef.current);
@@ -30,7 +32,6 @@ const PortfolioList = ({ onActiveChange }) => {
   };
 
   useEffect(() => {
-    const isDesktop = window.innerWidth > 768;
     if (!isDesktop) return;
     if (activeIndex === null) return;
     if (!portfolioListRef.current) return;
@@ -102,7 +103,7 @@ const PortfolioList = ({ onActiveChange }) => {
   const scroll = (direction) => {
     if (portfolioListRef.current) {
       const container = portfolioListRef.current;
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = !isDesktop;
       const items = container.querySelectorAll('.portfolio-item');
       
       if (items.length > 0) {
@@ -183,15 +184,15 @@ const PortfolioList = ({ onActiveChange }) => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className={`portfolio-item ${activeIndex === index && window.innerWidth > 768 ? 'active' : ''}`}
-            onClick={window.innerWidth > 768 ? () => handleToggle(index) : undefined}
+            className={`portfolio-item ${activeIndex === index && isDesktop ? 'active' : ''}`}
+            onClick={isDesktop ? () => handleToggle(index) : undefined}
           >
             <div className="project-name">{project.name}</div>
             <div className="swiss-underline"></div>
             <div className="tech-stack">{project.tech}</div>
             <div className="secondary-rule"></div>
-            
-            <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''} ${window.innerWidth <= 768 ? 'mobile-always-open' : ''}`}>
+
+            <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''} ${!isDesktop ? 'mobile-always-open' : ''}`}>
               <div className="screenshot-reveal">
                 {project.screenshot ? (
                   <img 
@@ -205,7 +206,7 @@ const PortfolioList = ({ onActiveChange }) => {
               </div>
             </div>
             
-            {activeIndex === index || window.innerWidth <= 768 ? (
+            {activeIndex === index || !isDesktop ? (
               <div className="project-details">
                 <p className="project-description">{project.description}</p>
                 <ul className="project-highlights">
