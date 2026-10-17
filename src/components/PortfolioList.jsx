@@ -192,10 +192,11 @@ const PortfolioList = ({ onActiveChange }) => {
             <div className={`screenshot-container ${activeIndex === index ? 'expanded' : ''} ${!isDesktop ? 'mobile-always-open' : ''}`}>
               <div className="screenshot-reveal">
                 {project.screenshot ? (
-                  <img 
-                    src={project.screenshot} 
+                  <img
+                    src={project.screenshot}
                     alt={`${project.name} screenshot`}
                     className="screenshot"
+                    loading="lazy"
                   />
                 ) : (
                   <div className="screenshot-placeholder"></div>
